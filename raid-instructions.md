@@ -1,3 +1,13 @@
+How to enter single-user recovery mode:
+Press e to edit the boot loader
+Add "rd.break enforcing 0" to the end of linux kernel line
+Ctrl+x to boot
+mount -o remount,rw /sysroot
+chroot /sysroot
+<do whatever to fix issues>
+to exit: "touch /.autorelabel" and type exit twice
+
+
 Create a RAID 1 Array:
 sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/disk1 /dev/disk2
 Check with cat /proc/mdstat
